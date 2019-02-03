@@ -1,4 +1,3 @@
-# import numpy as np
 import pandas as pd
 
 filename = 'work_log.csv'
@@ -9,11 +8,7 @@ df = pd.read_csv(filename, delimiter=',')
 clms = df.loc[:, ['Day of the Week', 'Hours', 'Salary', 'Tips']]
 allmean = pd.DataFrame.mean(clms)
 
-
-meanhours = allmean[0]
-meansalary = allmean[1]
-meantips = allmean[2]
-
+print(allmean)
 # print(weekday)
 # print(sunday, tuesday)
 
@@ -26,11 +21,8 @@ meantips = allmean[2]
 sunday = clms[clms['Day of the Week'].isin(['Sunday'])]
 allsunday = pd.DataFrame.mean(sunday)
 
-sundayhours = allsunday[0]
-sundaysalary = allsunday[1]
-sundaytips = allsunday[2]
-print(sundayhours)
-print(sundaysalary)
-print(sundaytips)
-
+print(allsunday)
 weekday = clms[clms['Day of the Week'].isin(['Monday', 'Tuesday', 'Wednesday',  'Thursday', 'Friday'])]
+allweekday = pd.DataFrame.mean(weekday)
+
+print(allweekday)

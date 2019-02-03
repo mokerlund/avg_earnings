@@ -8,23 +8,29 @@ The exact data I'm looking for is: average and total salary, average and total t
 
 Data Recovered so far:
 
-Avg salary:
-
-Total salary: 
-
-Avg total tips:
-
-Total tips:
-
-Avg hours:
+Avg hours:5.820755 
 
 Total hours:
 
-Avg salary per day:
+Avg salary:58.419811 
 
-Avg tips per day:
+Total salary:
+
+Avg total tips:67.865385
+
+Total tips:
 
 Avg hours per day:
+Sunday-6.382353
+Weekday-4.791667
+
+Avg salary per day:
+Sunday-64.227941
+Weekday-47.916667
+
+Avg tips per day:
+Sunday-83.764706
+Weekday-46.000000
 
 Overall total earned:
 
