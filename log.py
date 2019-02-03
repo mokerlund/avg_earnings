@@ -11,8 +11,6 @@ allmean = pd.DataFrame.mean(clms)
 meanhours = allmean[0]
 meansalary = allmean[1]
 meantips = allmean[2]
-totalearned = meansalary + meantips
-
 
 sunday = clms[clms['Day of the Week'].isin(['Sunday'])]
 
