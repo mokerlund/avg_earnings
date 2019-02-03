@@ -7,6 +7,8 @@ df = pd.read_csv(filename, delimiter=',')
 
 clms = df.loc[:, ['Day of the Week', 'Hours', 'Salary', 'Tips']]
 allmean = pd.DataFrame.mean(clms)
+# To do: totalhours/sal/tips = pd.DF.sun(allmean[0])
+total 
 
 print(allmean)
 # print(weekday)
