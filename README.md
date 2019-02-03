@@ -8,11 +8,17 @@ The exact data I'm looking for is: average total salary, average total tips,  av
 
 Data Recovered so far:
 Avg total salary: 
+
 Avg total tips:
+
 Avg total hours:
+
 Avg salary per day:
+
 Avg tips per day:
+
 Avg hours per day:
+
 Overall total earned:
 
 Projected total:
