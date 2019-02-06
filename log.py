@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 filename = 'work_log.csv'
 df = pd.read_csv(filename, delimiter=',')
@@ -49,4 +51,22 @@ mwksalary = str(meanweekday[1])
 mwktips = str(meanweekday[2])
 print('I worked an average of ' + mwkhours + ' hours on weekdays. I also made an average of $' + mwksalary + ' in addition to $' + mwktips + ' in tips.')
 
+# Matplotlib implementation
+n_groups = 2
+overall = [allmean[1], allmean[2]]
+sunday = [meansunday[1], meansunday[2]]
+saturday = [meansaturday[1], meansaturday[2]]
+weekday = [meanweekday[1], meanweekday[2]]
 
+fig, ax = plt.subplots()
+index = np.arrange(n_groups)
+bar_width = 0.35
+opacity = 0.8
+
+rects1 = plt.bar(index, overall, bar_width, alpha=opacity, color='b', label='Overall')
+
+rects2 = plt.bar(index, saturday, bar_width, alpha=opacity, color='r', label='Saturday')
+
+rects3 = plt.bar(index, sunday, bar_width, alpha=opacity, color='g', label='Sunday')
+
+rects4 = plt.bar(index, weekday, bar_width, alpha=opacity, color='y', label='Weekday')
