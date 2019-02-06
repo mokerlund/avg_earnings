@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 filename = 'work_log.csv'
 df = pd.read_csv(filename, delimiter=',')
@@ -8,25 +7,31 @@ df = pd.read_csv(filename, delimiter=',')
 
 clms = df.loc[:, ['Day of the Week', 'Hours', 'Salary', 'Tips']]
 allmean = pd.DataFrame.mean(clms)
-# To do: totalhours/sal/tips = pd.DF.sun(allmean[0])
-npclms = np.array(clms[:, 1:])
+alltotals = pd.DataFrame.sum(clms)
 
 meanhours = str(allmean[0])
 meansalary = str(allmean[1])
 meantips = str(allmean[2])
-totalhours = str(np.sum(npclms[:, 1]))
-totalsalary = str(np.sum(npclms[:, 2]))
-totaltips = str(np.sum(npclms[:, 3]))
-# print(str(np.sum(npclms[:, 0:3])))
-print(npclms)
-# print("I worked for a total of " + totalhours + " hours, or an average of " + meanhours + " hours.")
-# print("I earntad a total of $" + totalsalary + " in salary, or an average of $" + meansalary + " per day.")
-# print("I earned a total of $" + totaltips + " in tips, or an average of $" + meantips + " per day.")
+totalhours = str(alltotals[1])
+totalsalary = str(alltotals[2])
+totaltips = str(alltotals[3])
+
+print("I worked for a total of " + totalhours + " hours, or an average of " + meanhours + " hours.")
+print("I earntad a total of $" + totalsalary + " in salary, or an average of $" + meansalary + " per day.")
+print("I earned a total of $" + totaltips + " in tips, or an average of $" + meantips + " per day.")
+
 # Averages and Totals by Days of the week
 
 sunday = clms[clms['Day of the Week'].isin(['Sunday'])]
-allsunday = pd.DataFrame.mean(sunday)
+meansunday = pd.DataFrame.mean(sunday)
+allsunday = pd.DataFrame.sum(sunday)
+#this!!msunhours, msunsalary, msumtips, but leave those as comments, just use [1]etc.
+print(meansunday[1])
 
+# print('I worked an average of ' + meansunday[0] + ' hours on Sundays. I also made an average of $' + meansunday[1] + ' in addition to $' + meansunday[3] + ' in tips.')
 weekday = clms[clms['Day of the Week'].isin(['Monday', 'Tuesday', 'Wednesday',  'Thursday', 'Friday'])]
-allweekday = pd.DataFrame.mean(weekday)
+meanweekday = pd.DataFrame.mean(weekday)
+# allhours = 
+# allprofit= allweekday[]
 
+# print('I worked an average of ' + meanweekday)
