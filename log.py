@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+plt.rcdefaults()
 
 filename = 'work_log.csv'
 df = pd.read_csv(filename, delimiter=',')
@@ -60,24 +61,21 @@ weekday = [meanweekday[1], meanweekday[2]]
 
 fig, ax = plt.subplots()
 index = np.arange(n_groups)
-bar_width = 0.35
+bar_width = 0.20
 opacity = 0.8
 
-rects1 = plt.bar(index, overall, bar_width, alpha=opacity, color='b', label='Overall')
+p1 = ax.bar(index + 0.00, overall, bar_width, bottom=0, alpha=opacity, color='b', label='Overall')
 
-rects2 = plt.bar(index, saturday, bar_width, alpha=opacity, color='r', label='Saturday')
+p2 = ax.bar(index + 0.25, saturday, bar_width, bottom=0, alpha=opacity, color='r', label='Saturday')
 
-rects3 = plt.bar(index, sunday, bar_width, alpha=opacity, color='g', label='Sunday')
+p3 = ax.bar(index + 0.50, sunday, bar_width, bottom=0, alpha=opacity, color='g', label='Sunday')
 
-rects4 = plt.bar(index, weekday, bar_width, alpha=opacity, color='y', label='Weekday')
-
-plt.xlabel('Type of income')
-plt.ylabel('Money earned by $')
+p4 = ax.bar(index + 0.75, weekday, bar_width, bottom=0, alpha=opacity, color='y', label='Weekday')
+# plt.barh(height=0.8, left=None, align='center', figure=2, ax=2)
 plt.title('Money Earned Comparison')
-tick_val = [0, 1]
-tick_lab = ['Wage', 'Tips']
-plt.xticks(tick_val, tick_lab)
-plt.legend()
+ax.set_xticks(index + bar_width/2)
+ax.set_xticklabels(('Wage', 'Tips'))
+ax.legend((p1[0], p2[0], p3[0], p4[0]), ('Overall', 'Saturday', 'Sunday', 'Weekday'))
 
 plt.tight_layout()
 plt.show()
