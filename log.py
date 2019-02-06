@@ -31,10 +31,22 @@ msunsalary = str(meansunday[1])
 msuntips = str(meansunday[2])
 
 print('I worked an average of ' + msunhours + ' hours on Sundays. I also made an average of $' + msunsalary + ' in addition to $' + msuntips + ' in tips.')
+
+saturday = clms[clms['Day of the Week'].isin(['Saturday'])]
+meansaturday2 = pd.DataFrame.mean(saturday)
+meansaturday = meansaturday2.round(2)
+msathours = str(meansaturday[0])
+msatsalary = str(meansaturday[1])
+msattips = str(meansaturday[2])
+
+print('I worked an average of ' + msathours + ' hours on Saturdays. I also made an average of $' + msatsalary + ' in addition to $' + msattips + ' in tips.')
 weekday = clms[clms['Day of the Week'].isin(['Monday', 'Tuesday', 'Wednesday',  'Thursday', 'Friday'])]
+
 meanweekday2 = pd.DataFrame.mean(weekday)
 meanweekday = meanweekday2.round(2)
 mwkhours = str(meanweekday[0])
 mwksalary = str(meanweekday[1])
 mwktips = str(meanweekday[2])
 print('I worked an average of ' + mwkhours + ' hours on weekdays. I also made an average of $' + mwksalary + ' in addition to $' + mwktips + ' in tips.')
+
+
