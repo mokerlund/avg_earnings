@@ -6,8 +6,9 @@ df = pd.read_csv(filename, delimiter=',')
 # Overall of Averages and Totals
 
 clms = df.loc[:, ['Day of the Week', 'Hours', 'Salary', 'Tips']]
-allmean = pd.DataFrame.mean(clms)
+allmean2 = pd.DataFrame.mean(clms)
 alltotals = pd.DataFrame.sum(clms)
+allmean = allmean2.round(2)
 
 meanhours = str(allmean[0])
 meansalary = str(allmean[1])
@@ -23,15 +24,16 @@ print("I earned a total of $" + totaltips + " in tips, or an average of $" + mea
 # Averages and Totals by Days of the week
 
 sunday = clms[clms['Day of the Week'].isin(['Sunday'])]
-meansunday = pd.DataFrame.mean(sunday)
-allsunday = pd.DataFrame.sum(sunday)
-#this!!msunhours, msunsalary, msumtips, but leave those as comments, just use [1]etc.
-print(meansunday[1])
+meansunday2 = pd.DataFrame.mean(sunday)
+meansunday = meansunday2.round(2)
+msunhours = str(meansunday[0])
+msunsalary = str(meansunday[1])
+msuntips = str(meansunday[2])
 
-# print('I worked an average of ' + meansunday[0] + ' hours on Sundays. I also made an average of $' + meansunday[1] + ' in addition to $' + meansunday[3] + ' in tips.')
+print('I worked an average of ' + msunhours + ' hours on Sundays. I also made an average of $' + msunsalary + ' in addition to $' + msuntips + ' in tips.')
 weekday = clms[clms['Day of the Week'].isin(['Monday', 'Tuesday', 'Wednesday',  'Thursday', 'Friday'])]
 meanweekday = pd.DataFrame.mean(weekday)
 # allhours = 
 # allprofit= allweekday[]
 
-# print('I worked an average of ' + meanweekday)
+# print('I worked an average of ' + mwkhours + ' hours on weekdays. I also made an average of $' + mwksalary ' in addition to $' + mwktips + ' in tips.')
