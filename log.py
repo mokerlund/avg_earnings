@@ -59,7 +59,7 @@ saturday = [meansaturday[1], meansaturday[2]]
 weekday = [meanweekday[1], meanweekday[2]]
 
 fig, ax = plt.subplots()
-index = np.arrange(n_groups)
+index = np.arange(n_groups)
 bar_width = 0.35
 opacity = 0.8
 
@@ -71,9 +71,12 @@ rects3 = plt.bar(index, sunday, bar_width, alpha=opacity, color='g', label='Sund
 
 rects4 = plt.bar(index, weekday, bar_width, alpha=opacity, color='y', label='Weekday')
 
-plt.ylabel('Earnings by $')
-plt.title('Earning Comparison')
-plt.xticks(index + bar_width, ('Wage', 'Tips'))
+plt.xlabel('Type of income')
+plt.ylabel('Money earned by $')
+plt.title('Money Earned Comparison')
+tick_val = [0, 1]
+tick_lab = ['Wage', 'Tips']
+plt.xticks(tick_val, tick_lab)
 plt.legend()
 
 plt.tight_layout()
