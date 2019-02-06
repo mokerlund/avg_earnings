@@ -70,3 +70,11 @@ rects2 = plt.bar(index, saturday, bar_width, alpha=opacity, color='r', label='Sa
 rects3 = plt.bar(index, sunday, bar_width, alpha=opacity, color='g', label='Sunday')
 
 rects4 = plt.bar(index, weekday, bar_width, alpha=opacity, color='y', label='Weekday')
+
+plt.ylabel('Earnings by $')
+plt.title('Earning Comparison')
+plt.xticks(index + bar_width, ('Wage', 'Tips'))
+plt.legend()
+
+plt.tight_layout()
+plt.show()
