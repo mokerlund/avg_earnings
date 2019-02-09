@@ -20,9 +20,9 @@ totalhours = str(alltotals[1])
 totalsalary = str(alltotals[2])
 totaltips = str(alltotals[3])
 
-print("I worked for a total of " + totalhours + " hours, or an average of " + meanhours + " hours.")
-print("I earntad a total of $" + totalsalary + " in salary, or an average of $" + meansalary + " per day.")
-print("I earned a total of $" + totaltips + " in tips, or an average of $" + meantips + " per day.")
+# print("I worked for a total of " + totalhours + " hours, or an average of " + meanhours + " hours.")
+# print("I earntad a total of $" + totalsalary + " in salary, or an average of $" + meansalary + " per day.")
+# print("I earned a total of $" + totaltips + " in tips, or an average of $" + meantips + " per day.")
 
 # Averages and Totals by Days of the week
 
@@ -32,8 +32,8 @@ meansunday = meansunday2.round(2)
 msunhours = str(meansunday[0])
 msunsalary = str(meansunday[1])
 msuntips = str(meansunday[2])
-
-print('I worked an average of ' + msunhours + ' hours on Sundays. I also made an average of $' + msunsalary + ' in addition to $' + msuntips + ' in tips.')
+sunhourly = str((meansunday[1] + meansunday[2]) / meansunday[0])
+# print('I worked an average of ' + msunhours + ' hours on Sundays. I also made an average of $' + msunsalary + ' in addition to $' + msuntips + ' in tips.')
 
 saturday = clms[clms['Day of the Week'].isin(['Saturday'])]
 meansaturday2 = pd.DataFrame.mean(saturday)
@@ -41,8 +41,8 @@ meansaturday = meansaturday2.round(2)
 msathours = str(meansaturday[0])
 msatsalary = str(meansaturday[1])
 msattips = str(meansaturday[2])
-
-print('I worked an average of ' + msathours + ' hours on Saturdays. I also made an average of $' + msatsalary + ' in addition to $' + msattips + ' in tips.')
+sathourly = str((meansaturday[1] + meansaturday[2]) / meansaturday[0])
+# print('I worked an average of ' + msathours + ' hours on Saturdays. I also made an average of $' + msatsalary + ' in addition to $' + msattips + ' in tips.')
 weekday = clms[clms['Day of the Week'].isin(['Monday', 'Tuesday', 'Wednesday',  'Thursday', 'Friday'])]
 
 meanweekday2 = pd.DataFrame.mean(weekday)
@@ -50,7 +50,11 @@ meanweekday = meanweekday2.round(2)
 mwkhours = str(meanweekday[0])
 mwksalary = str(meanweekday[1])
 mwktips = str(meanweekday[2])
-print('I worked an average of ' + mwkhours + ' hours on weekdays. I also made an average of $' + mwksalary + ' in addition to $' + mwktips + ' in tips.')
+weekhourly = str((meanweekday[1] + meanweekday[2]) / meanweekday[0])
+# print('I worked an average of ' + mwkhours + ' hours on weekdays. I also made an average of $' + mwksalary + ' in addition to $' + mwktips + ' in tips.')
+
+print()
+print('Sunday hourly rate: $' + sunhourly + '.' 'Saturday hourly rate: $' + sathourly + '.' 'Weekday hourly rate: $' + weekhourly + '.')
 
 # Matplotlib implementation
 n_groups = 2
@@ -77,3 +81,11 @@ plt.legend((p1[0], p2[0], p3[0], p4[0]), ('Overall', 'Saturday', 'Sunday', 'Week
 plt.grid()
 plt.tight_layout()
 plt.show()
+
+
+# Projections for 3 months
+
+days = 3*4
+
+
+# print('If I worked for 3 months on Sunday and one weekday, I could make about $' + + '.')
