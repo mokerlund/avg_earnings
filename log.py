@@ -59,26 +59,21 @@ sunday = [meansunday[1], meansunday[2]]
 saturday = [meansaturday[1], meansaturday[2]]
 weekday = [meanweekday[1], meanweekday[2]]
 
-pos = np.array(range(len(overall[allmean[1]]))) 
-fig, ax = plt.subplots()
 index = np.arange(n_groups)
-bar_width = 0.20
-opacity = 0.8
+bar_width = 0.2
+opacity = 0.69
 
-p1 = ax.bar(index + 0.00, overall, bar_width, alpha=opacity, color='b', label='Overall')
+p1 = plt.bar(index, overall, bar_width, alpha=opacity, color='b', label='Overall')
 
-p2 = ax.bar(index + 0.25, saturday, bar_width, alpha=opacity, color='r', label='Saturday')
+p2 = plt.bar(index + bar_width, saturday, bar_width, alpha=opacity, color='y', label='Saturday')
 
-p3 = ax.bar(index + 0.50, sunday, bar_width, alpha=opacity, color='g', label='Sunday')
+p3 = plt.bar(index + bar_width*2, sunday, bar_width, alpha=opacity, color='g', label='Sunday')
 
-p4 = ax.bar(index + 0.75, weekday, bar_width, alpha=opacity, color='y', label='Weekday')
-# plt.barh(height=0.8, left=None, align='center', figure=2, ax=2)
-ax.set_title('Money Earned Comparison')
-ax.set_xticks(index + bar_width / 2)
-ax.set_xticklabels(('Wage', 'Tips'))
-ax.legend((p1[0], p2[0], p3[0], p4[0]), ('Overall', 'Saturday', 'Sunday', 'Weekday'))
+p4 = plt.bar(index + bar_width*3, weekday, bar_width, alpha=opacity, color='r', label='Weekday')
+plt.title('Money Earned Comparison')
+plt.xticks(index + bar_width*1.5, ('Wage', 'Tips'))
+plt.legend((p1[0], p2[0], p3[0], p4[0]), ('Overall', 'Saturday', 'Sunday', 'Weekday'), loc='best')
 
-ax.autoscale_view()
 plt.grid()
 plt.tight_layout()
 plt.show()
