@@ -19,19 +19,17 @@ allmean = allmean2.round(2)
 sunday = clms[clms['Day of the Week'].isin(['Sunday'])]
 meansunday2 = pd.DataFrame.mean(sunday)
 meansunday = meansunday2.round(2)
-sunhourly = str((meansunday[1] + meansunday[2]) / meansunday[0])
+sunhourly = (meansunday[1] + meansunday[2]) / meansunday[0]
 
 saturday = clms[clms['Day of the Week'].isin(['Saturday'])]
 meansaturday2 = pd.DataFrame.mean(saturday)
 meansaturday = meansaturday2.round(2)
-sathourly = str((meansaturday[1] + meansaturday[2]) / meansaturday[0])
+sathourly = (meansaturday[1] + meansaturday[2]) / meansaturday[0]
 weekday = clms[clms['Day of the Week'].isin(['Monday', 'Tuesday', 'Wednesday',  'Thursday', 'Friday'])]
 
 meanweekday2 = pd.DataFrame.mean(weekday)
 meanweekday = meanweekday2.round(2)
-weekhourly = str((meanweekday[1] + meanweekday[2]) / meanweekday[0])
-
-print('Sunday hourly rate: $' + sunhourly + '.' 'Saturday hourly rate: $' + sathourly + '.' 'Weekday hourly rate: $' + weekhourly + '.')
+weekhourly = (meanweekday[1] + meanweekday[2]) / meanweekday[0]
 
 # Matplotlib implementation
 n_groups = 2
@@ -40,8 +38,9 @@ sunday = [meansunday[1], meansunday[2]]
 saturday = [meansaturday[1], meansaturday[2]]
 weekday = [meanweekday[1], meanweekday[2]]
 
+fig, ax = plt.subplots()
 index = np.arange(n_groups)
-bar_width = 0.2
+bar_width = 0.15
 opacity = 0.69
 
 p1 = plt.bar(index, overall, bar_width, alpha=opacity, color='b', label='Overall')
@@ -55,6 +54,17 @@ plt.title('Money Earned Comparison')
 plt.xticks(index + bar_width*1.5, ('Wage', 'Tips'))
 plt.legend((p1[0], p2[0], p3[0], p4[0]), ('Overall', 'Saturday', 'Sunday', 'Weekday'), loc='best')
 
+
+def autolable(ps):
+    for p in ps:
+        height = p.get_height()
+        ax.text(p.get_x() + p.get_width()/2., 1.05*height, '%d' % int(height), ha='center', va='bottom')
+
+
+autolable(p1)
+autolable(p2)
+autolable(p3)
+autolable(p4)
 plt.grid()
 plt.tight_layout()
 plt.show()
@@ -63,7 +73,14 @@ plt.show()
 # Projections for 3 months
 
 days = 3*4
+hourly = (sunhourly + sathourly + weekhourly) / 3
 
+print(hourly)
+
+totalsunday = (sunday[0] + sunday[1]) * 4
+totalweekday = (weekday[0] + weekday[1]) * 4
+
+print(totalsunday + totalweekday)
 
 # print('If I worked for 3 months on Sunday and one weekday, I could make about $' + + '.')
 # USE HOURLY AND EARNING TOTALS FOR NEW GRAPH THAT MAKES IT EASIEST TO SEE + THE GRAPH FOR PROJECTED
