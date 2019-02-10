@@ -38,7 +38,7 @@ sunday = [meansunday[1], meansunday[2]]
 saturday = [meansaturday[1], meansaturday[2]]
 weekday = [meanweekday[1], meanweekday[2]]
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(10, 8))
 index = np.arange(n_groups)
 bar_width = 0.15
 opacity = 0.69
@@ -55,16 +55,16 @@ plt.xticks(index + bar_width*1.5, ('Wage', 'Tips'))
 plt.legend((p1[0], p2[0], p3[0], p4[0]), ('Overall', 'Saturday', 'Sunday', 'Weekday'), loc='best')
 
 
-def autolable(ps):
+def autolabel(ps):
     for p in ps:
         height = p.get_height()
-        ax.text(p.get_x() + p.get_width()/2., 1.05*height, '%d' % int(height), ha='center', va='bottom')
+        ax.text(p.get_x() + p.get_width()/2., 1*height, '%d' % int(height), ha='center', va='bottom')
 
 
-autolable(p1)
-autolable(p2)
-autolable(p3)
-autolable(p4)
+autolabel(p1)
+autolabel(p2)
+autolabel(p3)
+autolabel(p4)
 plt.grid()
 plt.tight_layout()
 plt.show()
