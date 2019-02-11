@@ -76,12 +76,5 @@ plt.show()
 days = 3*4
 hourly = (sunhourly + sathourly + weekhourly) / 3
 
-print(hourly)
-
 totalsunday = (sunday[0] + sunday[1]) * 4
 totalweekday = (weekday[0] + weekday[1]) * 4
-
-print(totalsunday + totalweekday)
-
-# print('If I worked for 3 months on Sunday and one weekday, I could make about $' + + '.')
-# USE HOURLY AND EARNING TOTALS FOR NEW GRAPH THAT MAKES IT EASIEST TO SEE + THE GRAPH FOR PROJECTED
