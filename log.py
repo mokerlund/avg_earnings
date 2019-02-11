@@ -38,7 +38,7 @@ sunday = [meansunday[1], meansunday[2]]
 saturday = [meansaturday[1], meansaturday[2]]
 weekday = [meanweekday[1], meanweekday[2]]
 
-fig, ax = plt.subplots(figsize=(10, 8))
+fig, ax = plt.subplots(figsize=(8, 6.5))
 index = np.arange(n_groups)
 bar_width = 0.15
 opacity = 0.69
