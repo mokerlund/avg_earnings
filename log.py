@@ -41,7 +41,7 @@ weekday = [meanweekday[1], meanweekday[2], (meanweekday[1] + meanweekday[2])]
 fig, ax = plt.subplots(figsize=(8, 6.5))
 index = np.arange(n_groups)
 bar_width = 0.15
-opacity = 0.69
+opacity = 0.85
 
 p1 = plt.bar(index, overall, bar_width, alpha=opacity, color='b', label='Overall')
 
