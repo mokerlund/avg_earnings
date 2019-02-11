@@ -32,11 +32,11 @@ meanweekday = meanweekday2.round(2)
 weekhourly = (meanweekday[1] + meanweekday[2]) / meanweekday[0]
 
 # Matplotlib implementation
-n_groups = 2
-overall = [allmean[1], allmean[2]]
-sunday = [meansunday[1], meansunday[2]]
-saturday = [meansaturday[1], meansaturday[2]]
-weekday = [meanweekday[1], meanweekday[2]]
+n_groups = 3
+overall = [allmean[1], allmean[2], (allmean[1] + allmean[2])]
+sunday = [meansunday[1], meansunday[2], (meansunday[1] + meansunday[2])]
+saturday = [meansaturday[1], meansaturday[2], (meansaturday[1] + meansaturday[2])]
+weekday = [meanweekday[1], meanweekday[2], (meanweekday[1] + meanweekday[2])]
 
 fig, ax = plt.subplots(figsize=(8, 6.5))
 index = np.arange(n_groups)
@@ -51,9 +51,8 @@ p3 = plt.bar(index + bar_width*2, sunday, bar_width, alpha=opacity, color='g', l
 
 p4 = plt.bar(index + bar_width*3, weekday, bar_width, alpha=opacity, color='r', label='Weekday')
 plt.title('Money Earned Comparison')
-plt.xticks(index + bar_width*1.5, ('Wage', 'Tips'))
-plt.yticks([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], ['$0', '$10', '$20', '$30', '$40', '$50', '$60', '$70', '$80', '$90', '$100'])
-plt.xlabel('How Earned')
+plt.xticks(index + bar_width*1.5, ('Wage ($10/hr)', 'Tips', 'Total'))
+plt.yticks([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160], ['$0', '$10', '$20', '$30', '$40', '$50', '$60', '$70', '$80', '$90', '$100', '$110', '$120', '$130', '$140', '$150', '$160'])
 plt.legend((p1[0], p2[0], p3[0], p4[0]), ('Overall', 'Saturday', 'Sunday', 'Weekday'), loc='best')
 
 
