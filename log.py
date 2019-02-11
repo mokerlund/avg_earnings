@@ -52,13 +52,15 @@ p3 = plt.bar(index + bar_width*2, sunday, bar_width, alpha=opacity, color='g', l
 p4 = plt.bar(index + bar_width*3, weekday, bar_width, alpha=opacity, color='r', label='Weekday')
 plt.title('Money Earned Comparison')
 plt.xticks(index + bar_width*1.5, ('Wage', 'Tips'))
+plt.yticks([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], ['$0', '$10', '$20', '$30', '$40', '$50', '$60', '$70', '$80', '$90', '$100'])
+plt.xlabel('How Earned')
 plt.legend((p1[0], p2[0], p3[0], p4[0]), ('Overall', 'Saturday', 'Sunday', 'Weekday'), loc='best')
 
 
 def autolabel(ps):
     for p in ps:
         height = p.get_height()
-        ax.text(p.get_x() + p.get_width()/2., 1*height, '%d' % int(height), ha='center', va='bottom')
+        ax.text(p.get_x() + p.get_width()/2., 1*height, '$' + str('%d' % int(height)), ha='center', va='bottom')
 
 
 autolabel(p1)
