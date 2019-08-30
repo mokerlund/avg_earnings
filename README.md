@@ -10,3 +10,5 @@ This includes the gross tips and salary as well as the days of the week.
 Hourly total: $21.6
 
 Projected 3mo. total: $2902.92
+
+![Money Earned Graph](Money_Earned.png)
